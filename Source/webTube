@@ -1,0 +1,35 @@
+--[[License]]--
+
+
+
+--[[URL's]]--
+
+local videoSource = ""
+local updateSource = ""
+
+--[[Vars]]--
+
+
+
+--[[Functions]]--
+
+local function getVid(vid)
+    local video = http.get(videoSource..vid).readAll()
+    f = fs.open("/.webTube/videos/"..vid, "w")
+    f.write(video)
+    f.close()
+end
+
+local function update()
+    
+end
+
+local function playVid(vid)
+    term.clear()
+    term.setCursorPos(1,1)
+    print("Starting up "..vid)
+    sleep(0.5)
+    shell.run("/.webTube/videos/"..vid) 
+end
+
+--[[Main Program]]--
